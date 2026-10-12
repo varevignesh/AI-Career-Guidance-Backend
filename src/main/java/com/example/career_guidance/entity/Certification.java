@@ -1,5 +1,7 @@
+
 package com.example.career_guidance.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class Certification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
@@ -32,13 +35,8 @@ public class Certification {
     public Certification() {
     }
 
-    public Certification(
-            Course course,
-            String name,
-            String provider,
-            String level,
-            Integer recommendedYear,
-            String officialUrl) {
+    public Certification(Course course, String name, String provider,
+            String level, Integer recommendedYear, String officialUrl) {
         this.course = course;
         this.name = name;
         this.provider = provider;
@@ -63,36 +61,36 @@ public class Certification {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getProvider() {
         return provider;
-    }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
     }
 
     public String getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
     public Integer getRecommendedYear() {
         return recommendedYear;
     }
 
-    public void setRecommendedYear(Integer recommendedYear) {
-        this.recommendedYear = recommendedYear;
-    }
-
     public String getOfficialUrl() {
         return officialUrl;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public void setRecommendedYear(Integer recommendedYear) {
+        this.recommendedYear = recommendedYear;
     }
 
     public void setOfficialUrl(String officialUrl) {
