@@ -1,4 +1,3 @@
-```java
 package com.example.career_guidance.config;
 
 import com.example.career_guidance.entity.Certification;
@@ -116,4 +115,3 @@ public class CertificationDataLoader {
         }
     }
 }
-```
